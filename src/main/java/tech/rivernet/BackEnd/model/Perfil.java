@@ -35,8 +35,10 @@ public class Perfil {
     private String profileImage;
     private String location;
     private String email;
+    private String companyName;
+    private String logoUrl;
+    private String companyUrl;
     private String about;
-    //private Company company;
 
     //Constructor
     
@@ -52,7 +54,10 @@ public class Perfil {
             String position,
             String profileImage,
             String location,
-            String email,
+            String email,         
+            String companyName,
+            String logoUrl,
+            String companyUrl,
             String about
         ) 
     {
@@ -64,8 +69,10 @@ public class Perfil {
         this.profileImage = profileImage;
         this.location = location;
         this.email = email;
+        this.companyName = companyName;
+        this.logoUrl = logoUrl;
+        this.companyUrl = companyUrl;
         this.about = about;
-        
     }
     
 }
