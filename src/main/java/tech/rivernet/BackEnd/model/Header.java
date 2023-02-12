@@ -19,7 +19,7 @@ import lombok.Setter;
 
 @Getter @Setter
 @Entity
-public class Perfil {
+public class Header {
     
     //Atributos
     
@@ -28,50 +28,38 @@ public class Perfil {
     private Integer id;
     
     @Basic
-    private String firstName;
-    private String lastName;
+    private String name;
     private String backImage;
     private String position;
     private String profileImage;
     private String location;
     private String email;
-    private String companyName;
-    private String logoUrl;
-    private String companyUrl;
     private String about;
 
     //Constructor
     
-    public Perfil() {
+    public Header() {
     }
 
-    public Perfil
+    public Header
         (
             Integer id,
-            String firstName,
-            String lastName,
+            String name,
             String backImage,
             String position,
             String profileImage,
             String location,
             String email,         
-            String companyName,
-            String logoUrl,
-            String companyUrl,
             String about
         ) 
     {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.name = name;
         this.backImage = backImage;
         this.position = position;
         this.profileImage = profileImage;
         this.location = location;
         this.email = email;
-        this.companyName = companyName;
-        this.logoUrl = logoUrl;
-        this.companyUrl = companyUrl;
         this.about = about;
     }
     

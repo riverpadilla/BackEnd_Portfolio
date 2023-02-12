@@ -6,7 +6,7 @@ package tech.rivernet.BackEnd.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import tech.rivernet.BackEnd.model.Perfil;
+import tech.rivernet.BackEnd.model.Education;
 
 /**
  *
@@ -14,6 +14,7 @@ import tech.rivernet.BackEnd.model.Perfil;
  */
 
 @Repository
-public interface PerfilRepository extends JpaRepository<Perfil,Integer>{
-    
+public interface EducationRepository extends JpaRepository<Education,Integer> { 
 }
+
+
