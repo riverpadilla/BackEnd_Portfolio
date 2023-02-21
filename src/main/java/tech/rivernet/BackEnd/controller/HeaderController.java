@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import tech.rivernet.BackEnd.model.Education;
-import tech.rivernet.BackEnd.model.Experience;
 import tech.rivernet.BackEnd.model.Header;
 import tech.rivernet.BackEnd.service.InterfaceHeaderService;
 
@@ -26,7 +24,7 @@ import tech.rivernet.BackEnd.service.InterfaceHeaderService;
  */
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4000")
+@CrossOrigin("*")
 public class HeaderController {
     
     @Autowired
@@ -34,45 +32,23 @@ public class HeaderController {
     
     @PostMapping("header/new")
     public void agregarHeader(@RequestBody Header header){
-        headerService.crearHeader(header);
+        headerService.createHeader(header);
     }
     
     @GetMapping ("header/view")
     @ResponseBody
-    public List<Header> verHeader(){
-        return headerService.verHeader();
+    public List<Header> viewHeader(){
+        return headerService.viewHeader();
     }
    
     @DeleteMapping("header/delete/{id}")
-    public void borrarHeader(@PathVariable int id){
-        headerService.borrarHeader(id);
+    public void deleteHeader(@PathVariable int id){
+        headerService.deleteHeader(id);
     }
     
-    @PutMapping("/header/edit")
-    public void editarHeader(@RequestBody Header header){
-        headerService.editarHeader(header);
-    }
-    
-    @GetMapping ("/ver/education")
-    @ResponseBody
-    public List<Education> verEducation(){
-        return headerService.verEducation();
-    }
-    
-    @PostMapping("/new/education")
-    public void agregarEducation(@RequestBody Education education){
-        headerService.crearEducation(education);
-    }
-    
-    @PutMapping("/edit/education")
-    public void editarEducation(@RequestBody Education education){
-        headerService.editarEducation(education);
-    }
-    
-    @PostMapping("/new/experience")
-    public void agregarExperience(@RequestBody Experience experience){
-        headerService.crearExperience(experience);
-    }
-    
-    
+    @PutMapping("header/edit")
+    public void editHeader(@RequestBody Header header){
+        System.out.println(header);
+        headerService.editHeader(header);
+    }      
 }

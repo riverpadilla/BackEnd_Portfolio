@@ -35,6 +35,11 @@ public class Header {
     private String location;
     private String email;
     private String about;
+    private String githubUrl;
+    private String twitterUrl;
+    private String facebookUrl;
+    private String instagramUrl;
+
 
     //Constructor
     
@@ -42,16 +47,20 @@ public class Header {
     }
 
     public Header
-        (
-            Integer id,
-            String name,
-            String backImage,
-            String position,
-            String profileImage,
-            String location,
-            String email,         
-            String about
-        ) 
+    (
+        Integer id,
+        String name,
+        String backImage,
+        String position,
+        String profileImage,
+        String location,
+        String email,         
+        String about,
+        String githubUrl,
+        String twitterUrl,
+        String facebookUrl,
+        String instagramUrl
+    ) 
     {
         this.id = id;
         this.name = name;
@@ -61,6 +70,10 @@ public class Header {
         this.location = location;
         this.email = email;
         this.about = about;
+        this.githubUrl=githubUrl;
+        this.twitterUrl=twitterUrl;
+        this.facebookUrl=facebookUrl;
+        this.instagramUrl=instagramUrl;
     }
     
 }

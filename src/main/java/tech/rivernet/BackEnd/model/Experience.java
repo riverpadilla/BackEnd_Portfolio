@@ -70,9 +70,5 @@ public class Experience{
         this.city = city;
         this.country = country;
     }
-
-    
- 
-    
     
 }

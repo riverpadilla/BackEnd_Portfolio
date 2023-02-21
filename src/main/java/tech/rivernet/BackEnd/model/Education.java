@@ -33,8 +33,8 @@ public class Education{
     private String school;
     private String title;
     private String logoUrl;
-    private String startYear;
-    private String endYear;
+    private String startDate;
+    private String endDate;
     private String description;
     
     
@@ -49,8 +49,8 @@ public class Education{
             String school,
             String title,
             String logoUrl,
-            String startYear,
-            String endYear,
+            String startDate,
+            String endDate,
             String description
         ) 
     {
@@ -58,8 +58,8 @@ public class Education{
         this.school = school;
         this.title = title;
         this.logoUrl = logoUrl;
-        this.startYear = startYear;
-        this.endYear = endYear;
+        this.startDate = startDate;
+        this.endDate= endDate;
         this.description = description;
     } 
     

@@ -5,8 +5,6 @@
 package tech.rivernet.BackEnd.service;
 
 import java.util.List;
-import tech.rivernet.BackEnd.model.Education;
-import tech.rivernet.BackEnd.model.Experience;
 import tech.rivernet.BackEnd.model.Header;
 
 /**
@@ -16,23 +14,14 @@ import tech.rivernet.BackEnd.model.Header;
 
 public interface InterfaceHeaderService {
     
-    public List<Header> verHeader();
+    public List<Header> viewHeader();
     
-    public void crearHeader(Header header);
+    public void createHeader(Header header);
     
-    public void borrarHeader(int id);
+    public void deleteHeader(int id);
     
-    public Header buscarHeader(int id);
+    public Header searchHeader(int id);
     
-    public void editarHeader(Header header);
-
-    public void crearEducation(Education education);
-    
-    public List<Education> verEducation();
-     
-    public void crearExperience(Experience experience);
-
-    public void editarEducation(Education education);
-    
+    public void editHeader(Header header); 
     
 }
