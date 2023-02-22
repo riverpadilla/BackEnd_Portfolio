@@ -12,8 +12,7 @@ import tech.rivernet.BackEnd.model.Experience;
  * @author river
  */
 public interface InterfaceExperienceService {
-    
-    
+        
     public List<Experience> viewExperience();
     
     public void createExperience(Experience experience);

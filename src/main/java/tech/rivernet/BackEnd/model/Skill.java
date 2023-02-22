@@ -13,7 +13,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-
 /**
  *
  * @author river
@@ -21,46 +20,37 @@ import lombok.Setter;
 
 @Getter @Setter
 @Entity
-public class Education{
-    
-    //atributos
+public class Skill {
+   
+    //Atributos
     
     @Id
-    @GeneratedValue( strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     
     @Basic
-    private String school;
-    private String title;
-    private String logoUrl;
-    private String startYear;
-    private String endYear;
     private String description;
+    private String grade;
+    
     
     
     //Constructor
+    
+    
 
-    public Education() {
+    public Skill() {
     }
-      
-    public Education
+
+    public Skill
         (
-            Integer id,
-            String school,
-            String title,
-            String logoUrl,
-            String startYear,
-            String endYear,
-            String description
-        ) 
+            Integer id, 
+            String description, 
+            String grade
+       ) 
     {
         this.id = id;
-        this.school = school;
-        this.title = title;
-        this.logoUrl = logoUrl;
-        this.startYear = startYear;
-        this.endYear= endYear;
         this.description = description;
-    } 
-    
+        this.grade = grade;
+    }
+        
 }

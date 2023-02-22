@@ -15,9 +15,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import tech.rivernet.BackEnd.model.Education;
-import tech.rivernet.BackEnd.service.InterfaceEducationService;
-
+import tech.rivernet.BackEnd.model.Skill;
+import tech.rivernet.BackEnd.service.InterfaceSkillService;
 
 /**
  *
@@ -26,36 +25,36 @@ import tech.rivernet.BackEnd.service.InterfaceEducationService;
 
 @RestController
 @CrossOrigin("*")
-public class EducationController {
+public class SkillController {
     
     @Autowired
-    private InterfaceEducationService educationService;
+    private InterfaceSkillService skillService;
+
+    @PostMapping ("skill/new")
+    public void createSkill(@RequestBody Skill skill) {
+        skillService.createSkill(skill);
+    }    
     
-    @PostMapping("education/new")
-    public void addEducation(@RequestBody Education education){
-        educationService.createEducation(education);
-    }
-    
-    @GetMapping ("education/view")
+    @GetMapping ("skill/view")
     @ResponseBody
-    public List<Education> viewEducation(){
-        return educationService.viewEducation();
+    public List<Skill> viewSkill() {
+        return skillService.viewSkill();
+    }
+
+
+    @DeleteMapping ("skill/delete/{id}")
+    public void deleteSkill(@PathVariable int id) {
+        skillService.deleteSkill(id);
+    }
+
+    @GetMapping ("skill/find/{id}")
+    @ResponseBody
+    public Skill searchSkill(int id) {
+        return skillService.searchSkill(id);
     }
     
-    @GetMapping ("education/find/{id}")
-    @ResponseBody  
-    public Education findEducation(@PathVariable int id){
-        return educationService.searchEducation(id);
+    @PutMapping ("skill/edit")
+    public void editSkill(@RequestBody Skill skill) {
+        skillService.editSkill(skill);
     }
-   
-    @DeleteMapping("education/delete/{id}")
-    public void deleteEducation(@PathVariable int id){
-        educationService.deleteEducation(id);
-    }
-    
-    @PutMapping("education/edit")
-    public void editEducation(@RequestBody Education education){
-        educationService.editExperience(education);
-    } 
-    
 }

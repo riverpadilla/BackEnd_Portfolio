@@ -33,7 +33,6 @@ public class ExperienceController {
     
     @PostMapping("experience/new")
     public void addExperience(@RequestBody Experience experience){
-        System.out.println(experience);
         experienceService.createExperience(experience);
     }
     
@@ -49,14 +48,13 @@ public class ExperienceController {
         return experienceService.searchExperience(id);
     }
    
-    @DeleteMapping("experience/delete/{id}")
+    @DeleteMapping ("experience/delete/{id}")
     public void deleteExperience(@PathVariable int id){
         experienceService.deleteExperience(id);
     }
     
-    @PutMapping("experience/edit")
+    @PutMapping ("experience/edit")
     public void editExperience(@RequestBody Experience experience){
-        System.out.println(experience);
         experienceService.editExperience(experience);
     } 
 }
