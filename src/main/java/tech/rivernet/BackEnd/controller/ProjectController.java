@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import tech.rivernet.BackEnd.model.Skill;
-import tech.rivernet.BackEnd.service.InterfaceSkillService;
+import tech.rivernet.BackEnd.model.Project;
+import tech.rivernet.BackEnd.service.InterfaceProjectService;
 
 /**
  *
@@ -25,36 +25,36 @@ import tech.rivernet.BackEnd.service.InterfaceSkillService;
 
 @RestController
 @CrossOrigin("*")
-public class SkillController {
+public class ProjectController {
     
     @Autowired
-    private InterfaceSkillService skillService;
+    private InterfaceProjectService projectService;
 
-    @PostMapping ("skill/new")
-    public void createSkill(@RequestBody Skill skill) {
-        skillService.createSkill(skill);
+    @PostMapping ("project/new")
+    public void createProject(@RequestBody Project project) {
+        projectService.createProject(project);
     }    
     
-    @GetMapping ("skill/view")
+    @GetMapping ("project/view")
     @ResponseBody
-    public List<Skill> viewSkill() {
-        return skillService.viewSkill();
+    public List<Project> viewProject() {
+        return projectService.viewProject();
     }
 
 
-    @DeleteMapping ("skill/delete/{id}")
-    public void deleteSkill(@PathVariable int id) {
-        skillService.deleteSkill(id);
+    @DeleteMapping ("project/delete/{id}")
+    public void deleteProject(@PathVariable int id) {
+        projectService.deleteProject(id);
     }
 
-    @GetMapping ("skill/find/{id}")
+    @GetMapping ("project/find/{id}")
     @ResponseBody
-    public Skill searchSkill(@PathVariable int id) {
-        return skillService.searchSkill(id);
+    public Project searchProject(@PathVariable int id) {
+        return projectService.searchProject(id);
     }
     
-    @PutMapping ("skill/edit")
-    public void editSkill(@RequestBody Skill skill) {
-        skillService.editSkill(skill);
+    @PutMapping ("project/edit")
+    public void editProject(@RequestBody Project project) {
+        projectService.editProject(project);
     }
 }

@@ -44,7 +44,7 @@ public class ExperienceController {
     
     @GetMapping ("experience/find/{id}")
     @ResponseBody  
-    public Experience findExperience(@PathVariable int id){
+    public Experience searchExperience(@PathVariable int id){
         return experienceService.searchExperience(id);
     }
    
