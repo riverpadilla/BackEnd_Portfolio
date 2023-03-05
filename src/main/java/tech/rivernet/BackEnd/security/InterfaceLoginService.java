@@ -13,14 +13,14 @@ import java.util.List;
 
 public interface InterfaceLoginService {
     
-    public List<Login> viewLogin();
+    public List<Rol> viewLogin();
     
-    public void createLogin(Login login);
+    public void createLogin(Rol login);
     
     public void deleteLogin(int id);
     
-    public Login searchLogin(int id);
+    public Rol searchLogin(int id);
     
-    public void editLogin(Login login); 
+    public void editLogin(Rol login); 
     
 }

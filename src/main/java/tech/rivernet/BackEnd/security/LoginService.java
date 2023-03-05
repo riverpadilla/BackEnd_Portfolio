@@ -21,11 +21,11 @@ public class LoginService implements InterfaceLoginService{
 
     
     @Override
-    public List<Login> viewLogin() {
+    public List<Rol> viewLogin() {
        return loginRepo.findAll();    }
 
     @Override
-    public void createLogin(Login login) {
+    public void createLogin(Rol login) {
         loginRepo.save(login);
     }
 
@@ -35,12 +35,12 @@ public class LoginService implements InterfaceLoginService{
     }
 
     @Override
-    public Login searchLogin(int id) {
+    public Rol searchLogin(int id) {
         return loginRepo.findById(id).orElse(null);
     }
 
     @Override
-    public void editLogin(Login login) {
+    public void editLogin(Rol login) {
         loginRepo.save(login);
     }
     

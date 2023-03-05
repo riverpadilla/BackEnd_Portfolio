@@ -4,14 +4,11 @@
  */
 package tech.rivernet.BackEnd.security;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
 /**
  *
  * @author river
  */
-
-@Repository
-public interface LoginRepository extends JpaRepository<Rol,Integer>{    
+public enum RolName {   
+    ROLE_ADMIN,
+    ROLE_USER    
 }

@@ -29,13 +29,13 @@ public class LoginController {
     private InterfaceLoginService loginService;
 
     @PostMapping ("login/new")
-    public void createLogin(@RequestBody Login login) {
+    public void createLogin(@RequestBody Rol login) {
         loginService.createLogin(login);
     }    
     
     @GetMapping ("login/view")
     @ResponseBody
-    public List<Login> viewLogin() {
+    public List<Rol> viewLogin() {
         return loginService.viewLogin();
     }
 
@@ -47,12 +47,12 @@ public class LoginController {
 
     @GetMapping ("login/find/{id}")
     @ResponseBody
-    public Login searchLogin(@PathVariable int id) {
+    public Rol searchLogin(@PathVariable int id) {
         return loginService.searchLogin(id);
     }
     
     @PutMapping ("login/edit")
-    public void editLogin(@RequestBody Login login) {
+    public void editLogin(@RequestBody Rol login) {
         loginService.editLogin(login);
     }
 }

@@ -4,11 +4,13 @@
  */
 package tech.rivernet.BackEnd.security;
 
-import jakarta.persistence.Basic;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,37 +22,27 @@ import lombok.Setter;
 
 @Getter @Setter
 @Entity
-public class Login {
+public class Rol {
    
     //Atributos
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     
-    @Basic
-    private String user;
-    private String password;
-    
-    
+    @Enumerated(EnumType.STRING)
+    @NotNull
+    private RolName rolName;
     
     //Constructor
     
-    
-
-    public Login() {
+    public Rol() {
     }
 
-    public Login
-        (
-            Integer id, 
-            String user, 
-            String password
-       ) 
-    {
-        this.id = id;
-        this.user = user;
-        this.password = password;
+    public Rol(@NotNull RolName rolName) {
+        this.rolName = rolName;    
     }
         
+    
+    
 }
