@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tech.rivernet.BackEnd.model.User;
+import tech.rivernet.BackEnd.repository.UserRepository;
 import tech.rivernet.BackEnd.security.MainUser;
 
 /**
@@ -21,13 +22,13 @@ import tech.rivernet.BackEnd.security.MainUser;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService{
     
-     @Autowired
-    UserService userService;
+    @Autowired
+    UserRepository userRepo;
 
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        User user = userService.getByUserName(userName).get();
+        User user = userRepo.findByUserName(userName).get();
         return MainUser.build(user);
     }
     

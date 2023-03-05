@@ -27,7 +27,7 @@ import java.util.Date;
 @Component
 public class JwtProvider {
    
-    private static  final Logger logger = LoggerFactory.getLogger(JwtEntryPoint.class);
+    private static final Logger logger = LoggerFactory.getLogger(JwtEntryPoint.class);
 
     @Value("${jwt.secret}")
     private String secret;
@@ -36,15 +36,15 @@ public class JwtProvider {
     private int expiration;
 
     public String generateToken(Authentication authentication) {
-        MainUser usuarioPrincipal = (MainUser) authentication.getPrincipal();
-        return Jwts.builder().setSubject(usuarioPrincipal.getUsername())
+        MainUser mainUser = (MainUser) authentication.getPrincipal();
+        return Jwts.builder().setSubject(mainUser.getUsername())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(new Date().getTime() + expiration * 1000))
                 .signWith(SignatureAlgorithm.HS512, secret)
                 .compact();
     }
 
-    public String getNombreUsuarioFromToken(String token){
+    public String getUserNameFromToken(String token){
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody().getSubject();
     }
 

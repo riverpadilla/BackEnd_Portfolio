@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import tech.rivernet.BackEnd.service.UserDetailsServiceImpl;
 
@@ -25,9 +26,11 @@ import tech.rivernet.BackEnd.service.UserDetailsServiceImpl;
  *
  * @author river
  */
+
+@Component
 public class JwtTokenFilter extends OncePerRequestFilter {
     
-    private static  final Logger logger = LoggerFactory.getLogger(JwtTokenFilter.class);
+    private static final Logger log = LoggerFactory.getLogger(JwtTokenFilter.class);
 
     @Autowired
     JwtProvider jwtProvider;
@@ -40,13 +43,13 @@ public class JwtTokenFilter extends OncePerRequestFilter {
         try {
             String token = getToken(req);
             if(token !=null && jwtProvider.validateToken(token)){
-                String nombreUsuario = jwtProvider.getNombreUsuarioFromToken(token);
-                UserDetails userDetails = userDetailsServiceImpl.loadUserByUsername(nombreUsuario);
+                String userName = jwtProvider.getUserNameFromToken(token);
+                UserDetails userDetails = userDetailsServiceImpl.loadUserByUsername(userName);
                 UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(auth);
             }
         }catch (Exception e){
-            logger.error("fail en método doFilter " + e.getMessage());
+            log.error("fail en método doFilter " + e.getMessage());
         }
         filterChain.doFilter(req, res);
     }
