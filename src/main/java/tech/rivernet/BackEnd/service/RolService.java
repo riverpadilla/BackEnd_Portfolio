@@ -28,5 +28,8 @@ public class RolService{
   public Optional<Rol> getByRolName(RolName rolName){
         return rolRepo.findByRolName(rolName);
     }  
-    
+  
+   public void rolSave(Rol rol){
+        rolRepo.save(rol);
+    }
 }

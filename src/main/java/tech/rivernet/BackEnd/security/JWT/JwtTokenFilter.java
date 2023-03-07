@@ -30,7 +30,7 @@ import tech.rivernet.BackEnd.service.UserDetailsServiceImpl;
 @Component
 public class JwtTokenFilter extends OncePerRequestFilter {
     
-    private static final Logger log = LoggerFactory.getLogger(JwtTokenFilter.class);
+    private final static Logger log = LoggerFactory.getLogger(JwtTokenFilter.class);
 
     @Autowired
     JwtProvider jwtProvider;
@@ -43,9 +43,10 @@ public class JwtTokenFilter extends OncePerRequestFilter {
         try {
             String token = getToken(req);
             if(token !=null && jwtProvider.validateToken(token)){
-                String userName = jwtProvider.getUserNameFromToken(token);
-                UserDetails userDetails = userDetailsServiceImpl.loadUserByUsername(userName);
-                UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                String username = jwtProvider.getUsernameFromToken(token);
+                UserDetails userDetails = userDetailsServiceImpl.loadUserByUsername(username);
+                UsernamePasswordAuthenticationToken auth = 
+                        new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(auth);
             }
         }catch (Exception e){

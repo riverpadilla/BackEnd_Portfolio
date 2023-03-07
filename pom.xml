@@ -79,6 +79,12 @@
 	  <groupId>org.springframework.security</groupId>
 	  <artifactId>spring-security-config</artifactId>
 	 </dependency>
+	 <dependency>
+	  <groupId>com.nimbusds</groupId>
+	  <artifactId>nimbus-jose-jwt</artifactId>
+	  <version>7.0.1</version>
+	  <classifier>jdk6</classifier>
+	 </dependency>
 	</dependencies>
 
 	<build>

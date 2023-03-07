@@ -16,6 +16,7 @@ import tech.rivernet.BackEnd.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User,Long>{
-    Optional<User> findByUserName(String nu);
-    boolean existsByUserName(String nu);
+    Optional<User> findByUsername(String nu);
+    Optional<User> findByTokenPassword(String tokenPassword);
+    boolean existsByUsername(String nu);
 }

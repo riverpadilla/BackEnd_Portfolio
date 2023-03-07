@@ -6,7 +6,8 @@ package tech.rivernet.BackEnd.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,13 +26,14 @@ import tech.rivernet.BackEnd.service.InterfaceEducationService;
  */
 
 @RestController
-@CrossOrigin("*")
+//@CrossOrigin("*")
 public class EducationController {
     
     @Autowired
     private InterfaceEducationService educationService;
     
     @PostMapping("education/new")
+    @PreAuthorize("hasRole('Admin')")
     public void addEducation(@RequestBody Education education){
         educationService.createEducation(education);
     }
@@ -49,11 +51,13 @@ public class EducationController {
     }
    
     @DeleteMapping("education/delete/{id}")
+    @PreAuthorize("hasRole('Admin')")
     public void deleteEducation(@PathVariable int id){
         educationService.deleteEducation(id);
     }
     
     @PutMapping("education/edit")
+    @PreAuthorize("hasRole('Admin')")
     public void editEducation(@RequestBody Education education){
         educationService.editExperience(education);
     } 

@@ -23,15 +23,19 @@ public class UserService{
 
     
   public Optional<User> getByUserName(String nu){
-        return userRepo.findByUserName(nu);
+        return userRepo.findByUsername(nu);
+    }
+  
+  public Optional<User> getByTokenPassword(String tokenPassword){
+        return userRepo.findByTokenPassword(tokenPassword);
     }
 
     public boolean existByName(String nu){
-        return userRepo.existsByUserName(nu);
+        return userRepo.existsByUsername(nu);
     }
 
 
-    public void saveName(User user){
+    public void saveUser(User user){
         userRepo.save(user);
     }
     

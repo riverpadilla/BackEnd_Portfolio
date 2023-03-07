@@ -8,8 +8,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import lombok.Getter;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,16 +20,15 @@ import tech.rivernet.BackEnd.model.User;
 
 public class MainUser implements UserDetails{
     
-    @Getter private Long id;
-    @Getter private String name;
-    private String userName;
+
+    private String username;
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
     
-    public MainUser(Long id, String name, String userName, String password, Collection<? extends GrantedAuthority> authorities) {
-        this.id = id;
-        this.name = name;
-        this.userName = userName;
+    public MainUser(String username, String password, Collection<? extends GrantedAuthority> authorities) {
+//        this.id = id;
+  
+        this.username = username;
         this.password = password;
         this.authorities = authorities;
     }
@@ -39,7 +36,7 @@ public class MainUser implements UserDetails{
     public static MainUser build(User user){
         List<GrantedAuthority> authorities =
                 user.getRoles().stream().map(rol -> new SimpleGrantedAuthority(rol.getRolName().name())).collect(Collectors.toList());
-        return new MainUser(user.getId(), user.getName(), user.getUserName(), user.getPassword(), authorities);
+        return new MainUser( user.getUsername(), user.getPassword(), authorities);
     }
     
     @Override
@@ -54,7 +51,7 @@ public class MainUser implements UserDetails{
 
     @Override
     public String getUsername() {
-        return userName;
+        return username;
     }
 
     @Override

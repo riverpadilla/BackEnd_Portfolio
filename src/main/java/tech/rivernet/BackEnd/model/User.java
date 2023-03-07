@@ -4,9 +4,9 @@
  */
 package tech.rivernet.BackEnd.model;
 
-import tech.rivernet.BackEnd.model.Rol;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -34,20 +34,18 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    @NotNull
-    private String name;
-    
+     
     @NotNull
     @Column(unique = true)
-    private String userName;
+    private String username;
     
     @NotNull
     private String password;
+    private String tokenPassword;
 
 //    @NotNull
-    @ManyToMany
-    @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_rol", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
     private Set<Rol> roles = new HashSet<>();
     
     
@@ -57,9 +55,8 @@ public class User {
     public User() {
     }
 
-    public User(@NotNull String name,@NotNull String userName,@NotNull String password) {
-       this.name = name;
-       this.userName = userName;
+    public User(@NotNull String username,@NotNull String password) {
+       this.username = username;
        this.password = password;
     }
         
