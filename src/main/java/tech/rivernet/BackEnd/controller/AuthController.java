@@ -71,7 +71,7 @@ public class AuthController {
     public ResponseEntity<?> createUser(@Valid @RequestBody NewUser newUser, BindingResult bindingResult){
         if(bindingResult.hasErrors())
             return new ResponseEntity(new Message("campos vacíos"), HttpStatus.BAD_REQUEST);
-        if(userService.existByName(newUser.getUsername()))
+        if(userService.existByUsername(newUser.getUsername()))
             return new ResponseEntity(new Message("ese nombre ya existe"), HttpStatus.BAD_REQUEST);
            User user =
                 new User(newUser.getUsername(),

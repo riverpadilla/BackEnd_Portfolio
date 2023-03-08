@@ -22,7 +22,7 @@ public class UserService{
     public UserRepository userRepo;
 
     
-  public Optional<User> getByUserName(String nu){
+  public Optional<User> getByUsername(String nu){
         return userRepo.findByUsername(nu);
     }
   
@@ -30,7 +30,7 @@ public class UserService{
         return userRepo.findByTokenPassword(tokenPassword);
     }
 
-    public boolean existByName(String nu){
+    public boolean existByUsername(String nu){
         return userRepo.existsByUsername(nu);
     }
 
