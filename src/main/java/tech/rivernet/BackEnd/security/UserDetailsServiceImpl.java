@@ -1,7 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
+/* BackEnd del Proyecto Integrador Final Argentina Programa  desarrollado por Rivelino Padilla */
+
 package tech.rivernet.BackEnd.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +11,6 @@ import org.springframework.stereotype.Service;
 import tech.rivernet.BackEnd.model.User;
 import tech.rivernet.BackEnd.repository.UserRepository;
 
-/**
- *
- * @author river
- */
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService{

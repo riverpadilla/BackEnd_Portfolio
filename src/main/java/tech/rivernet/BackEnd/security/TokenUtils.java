@@ -1,7 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
+/* BackEnd del Proyecto Integrador Final Argentina Programa  desarrollado por Rivelino Padilla */
+
 package tech.rivernet.BackEnd.security;
 
 import io.jsonwebtoken.Claims;
@@ -12,10 +11,6 @@ import java.sql.Date;
 import java.util.Collections;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
-/**
- *
- * @author river
- */
 public class TokenUtils {
     
     private final static  String ACCESS_TOKEN_SECRET = "$2a$10$SO6lJhBlsJyxsqULkq7BQeHSpT2IHB7c2bhJ2dmsvW8UDOAMZGUQe";

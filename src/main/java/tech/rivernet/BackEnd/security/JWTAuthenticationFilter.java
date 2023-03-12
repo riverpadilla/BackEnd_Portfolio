@@ -1,7 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
+/* BackEnd del Proyecto Integrador Final Argentina Programa  desarrollado por Rivelino Padilla */
+
 package tech.rivernet.BackEnd.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,10 +15,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-/**
- *
- * @author river
- */
+
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter{
 
     @Override
