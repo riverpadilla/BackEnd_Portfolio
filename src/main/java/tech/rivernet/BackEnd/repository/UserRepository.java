@@ -17,5 +17,5 @@ import tech.rivernet.BackEnd.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User,Integer>{
     
-    Optional<User> findOneByUsername(String user);
+    Optional<User> findOneByUsername(String username);
 }

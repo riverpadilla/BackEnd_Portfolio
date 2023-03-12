@@ -4,15 +4,14 @@
  */
 package tech.rivernet.BackEnd.security;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  *
  * @author river
  */
 
-@Getter @Setter
+@Data
 public class AuthCredentials {
     private String username;
     private String password;

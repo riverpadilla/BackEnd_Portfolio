@@ -19,11 +19,12 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 public class TokenUtils {
     
     private final static  String ACCESS_TOKEN_SECRET = "$2a$10$SO6lJhBlsJyxsqULkq7BQeHSpT2IHB7c2bhJ2dmsvW8UDOAMZGUQe";
-    private final static Long ACCESS_TOKEN_VALIDITY_SECONDS = 360_000L;
+    private final static Long ACCESS_TOKEN_VALIDITY_SECONDS = 2_592_000L;
     
     public static String createToken(String username){
         Long expirationTime = ACCESS_TOKEN_VALIDITY_SECONDS * 1000;
         Date expirationDate = new Date(System.currentTimeMillis() + expirationTime);
+        
         
         return Jwts.builder()
                 .setSubject(username)
@@ -41,6 +42,8 @@ public class TokenUtils {
                 .getBody();
         
         String username = claims.getSubject();
+        System.out.println("username: " + username);
+
         
         return new UsernamePasswordAuthenticationToken( username, null, Collections.emptyList());
         } catch (JwtException e) {
