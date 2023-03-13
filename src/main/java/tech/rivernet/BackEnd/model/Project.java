@@ -1,7 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
+/* BackEnd del Proyecto Integrador Final Argentina Programa  desarrollado por Rivelino Padilla */
+
 package tech.rivernet.BackEnd.model;
 
 import jakarta.persistence.Basic;
@@ -11,11 +10,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
-
-/**
- *
- * @author river
- */
 
 @Getter @Setter
 @Entity
